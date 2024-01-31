@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: green
+  labels:
+    name: green
+    app: green
+spec:
+  containers:
+  - name: green
+    image: kodekloud/webapp-color
+    ports:
+    - containerPort: 8080
+    env:
+    - name: APP_COLOR
+      valueFrom: 
+        configMapKeyRef:
+          name: green
+          key: APP_COLOR
